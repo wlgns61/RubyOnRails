@@ -1,0 +1,122 @@
+<style>@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);</style>
+<div class="row"> 
+    <ul class="collection with-header">
+        <li class="collection-header"><h4><%= link_to "Headline" , posts_category_path(:item => "All"), style: "color: black;"%></h4></li>
+        <div class="row">
+            <div class="main">
+                <% @posts.limit(3).each do |post| %> 
+                    <div class="col m4 s5">
+                        <div class="card">
+                            <div class="card-image">
+                                <% if post.image.url %>
+                                    <img src="<%= post.image.url%>", style="height: 200px;"/>     
+                                <% else %>
+                                    <img src="http://materializecss.com/images/office.jpg", style="height: 200px;"/>
+                                <% end %>
+                                <span class="card-title", style="font-size: 12pt;"><%= longtitle(post.title, 20) %></span>
+                            </div>
+                            <div class="card-content", style="font-size: 11pt;">
+                                 <%= link_to longtitle(post.content, 40) , posts_content_path(:id => post.id), style: "color: #424242;"%>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </ul>
+    <ul class="collection with-header">
+        <li class="collection-header"><h4><%= link_to "Sports" , posts_category_path(:item => "Sports"), style: "color: black;"%></h4></li>
+        <div class="main">
+            <div class="col s3">
+                <% if @sports.first %>
+                    <% if @sports.first.image.url %>
+                        <img src="<%= @sports.first.image.url%>", class="mainimg"/>     
+                    <% else %>
+                        <img src="http://materializecss.com/images/office.jpg", class="mainimg"/>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="col s9">
+                <% @sports.limit(4).each do |post| %> 
+                    <%= link_to longtitle(post.title, 40) , posts_content_path(:id => post.id), class: "collection-item", style: "color: #424242;" %>
+                <% end %>
+            </div>
+        </div>
+    </ul>
+    <ul class="collection with-header">
+        <li class="collection-header"><h4><%= link_to "Life" , posts_category_path(:item => "Life"), style: "color: black;"%></h4></li>
+        <div class="main">
+            <div class="col s3">
+                <% if @life.first %>
+                    <% if @life.first.image.url %>
+                        <img src="<%= @life.first.image.url%>", class="mainimg"/>     
+                    <% else %>
+                        <img src="http://materializecss.com/images/office.jpg", class="mainimg"/>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="col s9">
+                <% @life.limit(4).each do |post| %> 
+                    <%= link_to longtitle(post.title, 40) , posts_content_path(:id => post.id), class: "collection-item", style: "color: #424242;" %>
+                <% end %>
+            </div>
+        </div>
+    </ul>
+    <ul class="collection with-header">
+        <li class="collection-header"><h4><%= link_to "Social" , posts_category_path(:item => "Social"), style: "color: black;"%></h4></li>
+        <div class="main">
+            <div class="col s3">
+                <% if @social.first %>
+                    <% if @social.first.image.url %>
+                        <img src="<%= @social.first.image.url%>", class="mainimg"/>     
+                    <% else %>
+                        <img src="http://materializecss.com/images/office.jpg", class="mainimg"/>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="col s9">
+                <% @social.limit(4).each do |post| %> 
+                    <%= link_to longtitle(post.title, 40) , posts_content_path(:id => post.id), class: "collection-item", style: "color: #424242;" %>
+                <% end %>
+            </div>
+        </div>
+    </ul>
+    <ul class="collection with-header">
+        <li class="collection-header"><h4><%= link_to "Technology" , posts_category_path(:item => "Technology"), style: "color: black;"%></h4></li>
+        <div class="main">
+            <div class="col s3">
+                <% if @tech.first %>
+                    <% if @tech.first.image.url %>
+                        <img src="<%= @tech.first.image.url%>", class="mainimg"/>     
+                    <% else %>
+                        <img src="http://materializecss.com/images/office.jpg", class="mainimg"/>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="col s9">
+                <% @tech.limit(4).each do |post| %> 
+                    <%= link_to longtitle(post.title, 40) , posts_content_path(:id => post.id), class: "collection-item", style: "color: #424242;" %>
+                <% end %>
+            </div>
+        </div>
+    </ul>
+    <ul class="collection with-header">
+        <li class="collection-header"><h4><%= link_to "Else" , posts_category_path(:item => "Else"), style: "color: black;"%></h4></li>
+        <div class="main">
+            <div class="col s3">
+                <% if @else.first %>
+                    <% if @else.first.image.url %>
+                        <img src="<%= @else.first.image.url%>", class="mainimg"/>     
+                    <% else %>
+                        <img src="http://materializecss.com/images/office.jpg", class="mainimg"/>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="col s9">
+                <% @else.limit(4).each do |post| %> 
+                    <%= link_to longtitle(post.title, 40) , posts_content_path(:id => post.id), class: "collection-item", style: "color: #424242;" %>
+                <% end %>
+            </div>
+        </div>
+    </ul>
+</div>

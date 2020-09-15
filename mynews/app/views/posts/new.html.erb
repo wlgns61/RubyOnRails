@@ -1,0 +1,55 @@
+<div class="container"> 
+    <div class="row"> 
+        <div class="card col s12"> 
+            <div class="card-content"> 
+                <div class="card-title">기사 작성하기</div> 
+                <%= form_tag posts_path, multipart: true do %> 
+                    <div class="input-field"> 
+                        <%= text_area_tag :title, nil, class: "materialize-textarea", placeholder: "제목 입력" , id:"titles"%> 
+                    </div>
+                    <div class="input-field"> 
+                        <%= file_field_tag :image%> 
+                    </div>
+                    <div class="input-field"> 
+                        <p>
+                          <label>
+                            <%= radio_button_tag :category, "Sports", checked: false, class: "with-gap" %> 
+                            <span>Sports</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <%= radio_button_tag :category, "Life", checked: false, class: "with-gap" %> 
+                            <span>Life</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <%= radio_button_tag :category, "Social", checked: false, class: "with-gap" %> 
+                            <span>Social</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <%= radio_button_tag :category, "Technology", checked: false, class: "with-gap" %> 
+                            <span>Technology</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <%= radio_button_tag :category, "Else", checked: true, class: "with-gap" %> 
+                            <span>Else</span>
+                          </label>
+                        </p>
+                    </div>
+                    <div class="input-field"> 
+                        <%= text_area_tag :content, nil, class: "materialize-textarea", placeholder: "본문 입력", id:"contents" %> 
+                    </div>
+                    <div>
+                        <%= button_tag "작성하기", class: "btn",  id: "button" %>
+                    </div>  
+                <% end %> 
+            </div> 
+        </div>
+    </div> 
+</div>

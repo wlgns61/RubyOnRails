@@ -1,0 +1,48 @@
+<style>@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);</style>
+<head>
+    
+</head>
+<div class="row"> 
+    <div class="container">
+        <div class="col s12 m4"> 
+            <div class="card"> 
+                <div class="card-image"> 
+                    <% if current_user.avatar.url %>
+                        <img src="<%= current_user.avatar.url%>" />     
+                    <% else %>
+                        <img src="http://materializecss.com/images/office.jpg"/>
+                    <% end %>
+                </div> 
+                <div class="card-content"> 
+                    <div class="card-title"><%= current_user.name %></div> 
+                    <p>이메일 : <%= current_user.email %></p> 
+                    <p>올린 글 개수 : <%= @posts_count %></p> 
+                    <%= link_to new_post_path do %> 
+                        <button class="btn">기사 작성</button>
+                    <% end %> 
+                    <%= link_to edit_user_registration_path do %> 
+                        <button class="btn">정보 수정</button>
+                    <% end %> 
+                </div>  
+            </div>
+        </div>
+    </div>
+    <ul class="collection with-header">
+        <li class="collection-header"><h4>My Articles</h4></li>
+       <% @posts.each do |post| %> 
+            <% if post.image.url %>
+                <img src="<%= post.image.url%>" , class="newsimg"/>     
+            <% else %>
+                <img src="http://materializecss.com/images/office.jpg", class="newsimg"/>
+            <% end %>
+            
+            <a href = "<%= posts_mycontent_path(:id => post.id) %>", class= "collection-item", style="color: #424242; height: 90px;" >
+                <%= longtitle(post.title, 30)%></br>
+                <div class="timetxt"><%= post.created_at %></div>
+                <div class="contenttxt"><%= longtitle(post.content, 35)%></div>
+            </a>
+        <% end %>
+    </ul>
+</div>
+
+

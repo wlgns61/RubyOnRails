@@ -1,0 +1,75 @@
+<div class="container"> 
+    <div class="row"> 
+        <div class="card col s12"> 
+            <div class="card-content"> 
+                <div class="card-title">수정하기</div> 
+                <%= form_tag post_path(@post), method: "patch", multipart: true do %> 
+                    <div class="input-field"> 
+                        <%= text_area_tag :title, @post.title, class: "materialize-textarea", placeholder: "제목 입력" , id:"titles"%> 
+                    </div>
+                    <div class="input-field"> 
+                        <%= file_field_tag :image %> 
+                    </div>
+                    <div class="input-field"> 
+                        <p>
+                          <label>
+                            <% if @post.category == "Sports"%>
+                                <%= radio_button_tag :category, "Sports", true, class: "with-gap" %> 
+                            <% else %>
+                                <%= radio_button_tag :category, "Sports", false, class: "with-gap" %>
+                            <% end %>
+                            <span>Sports</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <% if @post.category == "Life"%>
+                                <%= radio_button_tag :category, "Life", true, class: "with-gap" %> 
+                            <% else %>
+                                <%= radio_button_tag :category, "Life", false, class: "with-gap" %>
+                            <% end %>
+                            <span>Life</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <% if @post.category == "Social"%>
+                                <%= radio_button_tag :category, "Social", true, class: "with-gap" %> 
+                            <% else %>
+                                <%= radio_button_tag :category, "Social", false, class: "with-gap" %>
+                            <% end %>
+                            <span>Social</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <% if @post.category == "Technology"%>
+                                <%= radio_button_tag :category, "Technology", true, class: "with-gap" %> 
+                            <% else %>
+                                <%= radio_button_tag :category, "Technology", false, class: "with-gap" %>
+                            <% end %>
+                            <span>Technology</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <% if @post.category == "Else"%>
+                                <%= radio_button_tag :category, "Else", true, class: "with-gap" %> 
+                            <% else %>
+                                <%= radio_button_tag :category, "Else", false, class: "with-gap" %>
+                            <% end %>
+                            <span>Else</span>
+                          </label>
+                        </p>
+                    </div>
+                    <div class="input-field"> 
+                        <%= text_area_tag :content, @post.content, class: "materialize-textarea", placeholder: "본문 입력", id:"contents" %> 
+                    </div>
+                    <div>
+                        <%= button_tag "수정하기", class: "btn",  id: "button" %>
+                    </div>  
+                <% end %> 
+            </div> 
+        </div>
+    </div> 
+</div>
