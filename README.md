@@ -6,6 +6,6 @@
 * 자신이 작성한 기사 리스트를 볼 수 있고, 계정의 정보 변경을 관리하는 페이지 구현. 
 
 <hr/>  
-# 개발환경        
-OS: Amazon Linux    
+## 개발환경          
+OS: Amazon Linux      
 Ruby On Rails 5.0
